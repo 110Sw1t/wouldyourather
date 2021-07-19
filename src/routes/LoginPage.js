@@ -15,7 +15,6 @@ export default class LoginPage extends Component {
 
    style = {
       display: 'flex',
-      alignItems: 'center',
       justifyContent: 'center',
       height: '100vh',
    }

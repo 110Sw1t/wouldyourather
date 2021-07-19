@@ -1,14 +1,14 @@
 import { Component } from 'react';
-import AddQuestionForm from '../components/AddQuestionForm';
 
 /**
- * @description Add question page 
+ * @description Home page 
  * @constructor
  */
-export default class AddQuestionPage extends Component {
+ export default class HomePage extends Component {
 
    style = {
       display: 'flex',
+      alignItems: 'center',
       justifyContent: 'center',
       height: '100vh',
    }
@@ -17,8 +17,8 @@ export default class AddQuestionPage extends Component {
 
       return (
          <div style={this.style}>
-            <AddQuestionForm />
          </div>
       );
    }
 }
+
