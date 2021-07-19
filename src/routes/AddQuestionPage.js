@@ -2,7 +2,7 @@ import { Component } from 'react';
 import AddQuestionForm from '../components/AddQuestionForm';
 
 /**
- * @description Login page 
+ * @description Add question page 
  * @constructor
  */
 export default class AddQuestionPage extends Component {

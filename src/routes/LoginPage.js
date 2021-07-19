@@ -10,7 +10,7 @@ import LoginForm from '../components/LoginForm';
 export default class LoginPage extends Component {
 
    static propTypes = {
-      users: PropTypes.object.isRequired,
+      users: PropTypes.object,
    }
 
    style = {
