@@ -42,16 +42,18 @@ class LeaderboardPage extends Component {
                      <th>#</th>
                      <th>Ava</th>
                      <th>Name</th>
-                     <th>Score</th>
+                     <th>Answered</th>
+                     <th>Asked</th>
                   </tr>
                </thead>
                <tbody>
                   {sortedUsers.map((user, index) => (
-                  <tr>
+                  <tr key={user.id}>
                      <td>{index + 1}</td>
                      <td><img src={user.avatarURL} alt="Avatar" style={this.avatarStyle}/></td>
                      <td>{user.name}</td>
-                     <td>{user.questions.length + Object.keys(user.answers).length}</td>
+                     <td>{Object.keys(user.answers).length}</td>
+                     <td>{user.questions.length}</td>
                   </tr>
                   ))}                  
                </tbody>

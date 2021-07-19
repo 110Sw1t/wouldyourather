@@ -18,8 +18,23 @@ browser router ignores custom history, use router instead
 margin auto centers a div, use in combination of width:60%
 
 
+<<<<========================================================================================================================>>>>
 
+higher order components such as withRouter and connect, can be composed together and can propagate their props until reach destination component in 
+all collected in this.props
+These higher order components use React context API Context.Provider and Context.Consumer
 
+withRouter provides the following to the component
+this.props.history to push urls
+this.props.match.params.[path param names]
+
+<<<<========================================================================================================================>>>>
+
+In comprae functions
+static compareScore(user1, user2) {
+
+user1 - user2 means tsa3ody
+lw 3kst trteb m3 params user2 - user1 means tnazoly
 
 
 
@@ -34,3 +49,5 @@ margin auto centers a div, use in combination of width:60%
 Why css works when importing to js?
 Why there is a delay between state change and this.forceUpdate takes effect?
 Why history was not acting correctly, only changing the url, and rendered content is not same as url, history.push was not working as intended?
+Why return promise in AsyncActionCreators?
+How to handle data updates if there are multiple tabs manging same data? or even multiple devices? what is best practice?

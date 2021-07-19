@@ -5,6 +5,7 @@ import NavigationBar from './NavigationBar';
 import LoginPage from '../routes/LoginPage';
 import AddQuestionPage from '../routes/AddQuestionPage';
 import LeaderboardPage from '../routes/LeaderboardPage';
+import HomePage from '../routes/HomePage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -23,6 +24,9 @@ class App extends Component {
         </Route>
         <Route exact path="/leaderboard">
           <LeaderboardPage />
+        </Route>
+        <Route exact path="/">
+          <HomePage />
         </Route>
       </Switch>
     )

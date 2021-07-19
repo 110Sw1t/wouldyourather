@@ -27,12 +27,6 @@ class LoginForm extends Component {
       selectedUserId: null,
    }
 
-   // Lifecycle
-
-   componentDidMount() {
-      this.props.dispatch(handleRetreiveUsers());
-   }
-
 
    // Styles
 
@@ -57,6 +51,13 @@ class LoginForm extends Component {
 
    onLoginClick = (_, event) => {
       this.props.dispatch(loginUser(this.props.users[this.state.selectedUserId]))
+   }
+
+   
+   // Lifecycle
+
+   componentDidMount() {
+      this.props.dispatch(handleRetreiveUsers());
    }
 
    render() {

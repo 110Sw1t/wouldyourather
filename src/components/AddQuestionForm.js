@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 // Use package/x instead of {x} from package to reduce amount of code packaged to user
 import Modal from 'react-bootstrap/Modal';
@@ -39,13 +40,20 @@ class AddQuestionForm extends Component {
          optionTwoText:this.option2.value, 
          author: this.props.loggedInUser.id
       }
-      this.props.dispatch(handleAddQuestion(question));
+      if (question.optionOneText && question.optionOneText.trim() && question.optionTwoText && question.optionTwoText.trim()) {
+         this.props.dispatch(handleAddQuestion(question, () => (this.props.history.push("/"))));
+      } else {
+         alert("Input fields are not filled");
+      }
+      
    }
 
    // refs
 
    option1 = null;
    option2 = null;
+
+   // Lifecycle
 
    render() {
 
@@ -76,4 +84,4 @@ class AddQuestionForm extends Component {
    }
 }
 
-export default connect((state) => ({ loggedInUser: state.loggedInUser }))(AddQuestionForm);
+export default withRouter(connect((state) => ({ loggedInUser: state.loggedInUser }))(AddQuestionForm));

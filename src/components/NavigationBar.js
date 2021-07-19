@@ -14,13 +14,21 @@ import { logoutUser } from '../actions/session';
 
 class NavigationBar extends Component {
 
+
+   // Styles
+
    avatarStyle = {
       height: "8vh"
    }
 
+
+   // Event listeners
+
    onLogout = () => {
       this.props.dispatch(logoutUser())
    }
+
+   // Lifecycle
 
    render() {
       return (
