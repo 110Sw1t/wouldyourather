@@ -1,5 +1,4 @@
 import { LOGIN, LOGOUT } from '../actions/session';
-import history from '../routes/history';
 
 const authorizer = (store) => (next) => (action) => {
 
@@ -10,14 +9,11 @@ const authorizer = (store) => (next) => (action) => {
             alert("Invalid User");
          } else {
             const res = next(action);
-            history.push("/");
             return res;
          }
          break;
       case LOGOUT:
-         next(action);
-         history.push("/login");
-         break;
+         return next(action);
       default:
          return next(action);
    }

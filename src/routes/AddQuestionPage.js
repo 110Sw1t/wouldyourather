@@ -1,17 +1,11 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
-import LoginForm from '../components/LoginForm';
-
+import AddQuestionForm from '../components/AddQuestionForm';
 
 /**
  * @description Login page 
  * @constructor
  */
-export default class LoginPage extends Component {
-
-   static propTypes = {
-      users: PropTypes.object.isRequired,
-   }
+export default class AddQuestionPage extends Component {
 
    style = {
       display: 'flex',
@@ -21,11 +15,11 @@ export default class LoginPage extends Component {
    }
 
    render() {
+
       return (
          <div style={this.style}>
-            <LoginForm users={this.props.users} />
+            <AddQuestionForm />
          </div>
       );
    }
 }
-
