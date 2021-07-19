@@ -1,6 +1,6 @@
 import {
    LOGIN
-} from '../actions/login.js';
+} from '../actions/session';
 
 export default function loggedInUser(state = null, action) {
    switch (action.type) {

@@ -1,4 +1,4 @@
-import {_getQuestions} from '../services/_DATA.js';
+import { _getUsers } from '../services/_DATA.js';
 
 export const RETREIVE_USERS = "RETREIVE_USERS";
 
@@ -11,7 +11,7 @@ function retreiveUsers(users) {
 
 export function handleRetreiveUsers() {
    return (dispatch) => {
-      return _getQuestions()
+      return _getUsers()
       .then((users) => {
          dispatch(retreiveUsers(users));
       })

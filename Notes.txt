@@ -1,0 +1,15 @@
+Initialize router history in a single place, to be used anywhere
+
+import { createBrowserHistory } from 'history';
+const history = createBrowserHistory(); // notic const so it never changes
+export default history;
+
+now make router use that history 
+
+<BrowserRouter history={history}>
+
+
+<<<<========================================================================================================================>>>>
+
+browser router ignores custom history, use router instead
+

@@ -7,16 +7,41 @@ import Middleware from './middleware/index.js'
 import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import history from './routes/history';
 
 const store = createStore(RootReducer, Middleware);
 
+(function () {
+  const redirectToLoginPageIfNotLoggedIn = () => {
+    const { loggedInUser } = store.getState();
+    let hasUserLoggedIn = loggedInUser && Object.keys(loggedInUser).length
+    if(!hasUserLoggedIn) {
+      history.push("/login");
+    }
+  }
+
+  
+  redirectToLoginPageIfNotLoggedIn();
+  store.subscribe(() => {
+    redirectToLoginPageIfNotLoggedIn();
+  })
+  history.listen((location) => {
+    // To break infinite recursion if the user is not logged in history.push => history.eventListener => history.push
+    if(location.pathname !== "/login") {
+      redirectToLoginPageIfNotLoggedIn();
+    }
+  })
+})()
+
 ReactDOM.render(
-  <BrowserRouter>
-    <Provider store={store}>
+// provider doesn't depend on routing
+  <Provider store={store}>
+    <Router history={history}>
       <App />
-    </Provider>
-  </BrowserRouter>,
+    </Router>
+  </Provider>
+  ,
   document.getElementById('root')
 );
 
