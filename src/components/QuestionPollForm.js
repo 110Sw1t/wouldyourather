@@ -75,25 +75,37 @@ class QuestionPollForm extends Component {
 
    // Lifecycle
 
+   componentDidMount() {
+      const questionId = this.props.match.params.question_id;
+      const question = this.props.questions[questionId];
+      if (!question) {
+         this.props.history.push("/404");
+      }
+   }
+
    static getDerivedStateFromProps(props, state) {
       const questionId = props.match.params.question_id;
       const question = props.questions[questionId];
 
-      const answer = props.loggedInUser.answers[question.id];
+      if (question) {
+         const answer = props.loggedInUser.answers[question.id];
 
-      const alreadyAnswered = Object.keys(props.loggedInUser.answers).includes(question.id);
-      if (alreadyAnswered) {
-         return { selectedOption: answer };
-      } else {
-         return state;
+         const alreadyAnswered = Object.keys(props.loggedInUser.answers).includes(question.id);
+         if (alreadyAnswered) {
+            return { selectedOption: answer };
+         }
       }
       
+      return state;
    }
 
    render() {
 
       const questionId = this.props.match.params.question_id;
       const question = this.props.questions[questionId];
+      if (!question) {
+         return null;
+      }
       const author = this.props.users[question.author];
 
       const alreadyAnswered = Object.keys(this.props.loggedInUser.answers).includes(question.id);

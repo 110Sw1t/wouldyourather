@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 
 // Use package/x instead of {x} from package to reduce amount of code packaged to user
@@ -50,6 +52,7 @@ class LoginForm extends Component {
 
    onLoginClick = (_, event) => {
       this.props.dispatch(loginUser(this.props.users[this.state.selectedUserId]))
+      this.props.history.push("/");
    }
 
    
@@ -96,4 +99,4 @@ class LoginForm extends Component {
    }
 }
 
-export default connect((state) => ({ users: state.users }))(LoginForm);
+export default withRouter(connect((state) => ({ users: state.users }))(LoginForm));

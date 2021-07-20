@@ -28,6 +28,8 @@ withRouter provides the following to the component
 this.props.history to push urls
 this.props.match.params.[path param names]
 
+watch the order of composition! https://stackoverflow.com/questions/54247082/connect-and-withrouter-issue
+
 <<<<========================================================================================================================>>>>
 
 In comprae functions
@@ -39,6 +41,8 @@ lw 3kst trteb m3 params user2 - user1 means tnazoly
 <<<<========================================================================================================================>>>>
 
 initData at the very beginning so that you don't get data on each route
+
+
 
 
 
