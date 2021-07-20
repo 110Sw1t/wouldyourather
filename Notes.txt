@@ -36,7 +36,9 @@ static compareScore(user1, user2) {
 user1 - user2 means tsa3ody
 lw 3kst trteb m3 params user2 - user1 means tnazoly
 
+<<<<========================================================================================================================>>>>
 
+initData at the very beginning so that you don't get data on each route
 
 
 

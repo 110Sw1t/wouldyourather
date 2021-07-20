@@ -2,19 +2,12 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import Table from 'react-bootstrap/Table';
 
-import { handleRetreiveUsers } from '../actions/users';
-
 /**
  * @description Leaderboard page 
  * @constructor
  */
 class LeaderboardPage extends Component {
 
-   // Lifecycle
-
-   componentDidMount() {
-      this.props.dispatch(handleRetreiveUsers());
-   }
 
    // Styles
 

@@ -7,7 +7,6 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-import { handleRetreiveUsers } from '../actions/users';
 import { loginUser } from '../actions/session';
 
 
@@ -20,7 +19,7 @@ import { loginUser } from '../actions/session';
  */
 class LoginForm extends Component {
    static propTypes = {
-      users: PropTypes.object.isRequired
+      users: PropTypes.object
    }
 
    state = {
@@ -56,9 +55,6 @@ class LoginForm extends Component {
    
    // Lifecycle
 
-   componentDidMount() {
-      this.props.dispatch(handleRetreiveUsers());
-   }
 
    render() {
       const selectedUser = this.props.users[this.state.selectedUserId];

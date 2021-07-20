@@ -6,13 +6,22 @@ import LoginPage from '../routes/LoginPage';
 import AddQuestionPage from '../routes/AddQuestionPage';
 import LeaderboardPage from '../routes/LeaderboardPage';
 import HomePage from '../routes/HomePage';
+import QuestionPollPage from '../routes/QuestionPollPage';
 import NotFoundPage from '../routes/NotFoundPage';
+
+import { handleInitData } from "../actions/shared";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
 class App extends Component {
+
+  // Lifecycle
+
+  componentDidMount() {
+    this.props.dispatch(handleInitData());
+  }
 
   render() {
     const { loggedInUser } = this.props;
@@ -28,6 +37,9 @@ class App extends Component {
         </Route>
         <Route exact path="/">
           <HomePage />
+        </Route>
+        <Route exact path="/questions/:question_id">
+          <QuestionPollPage />
         </Route>
         <Route>
           <NotFoundPage />

@@ -6,8 +6,6 @@ import CardColumns from 'react-bootstrap/CardColumns';
 
 import QuestionCard from '../components/QuestionCard';
 
-import { handleRetreiveQuestions } from '../actions/questions';
-
 /**
  * @description Question tabs 
  * @constructor
@@ -30,10 +28,6 @@ class QuestionTabs extends Component {
    }
 
    // Lifecycle
-
-   componentDidMount() {
-      this.props.dispatch(handleRetreiveQuestions());
-   }
 
    render() {
 
